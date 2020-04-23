@@ -4,7 +4,7 @@ namespace lfeigl.cleanr.Library
 {
     public abstract class Base
     {
-        public Guid ID;
+        public Guid ID { get; set; }
 
         public Base()
         {
