@@ -25,5 +25,13 @@ namespace lfeigl.cleanr.CLI
 
             Console.WriteLine(string.Join("\n", print));
         }
+
+        public static void PrintListOfBaseObjects(List<Base> list)
+        {
+            foreach (Base baseObject in list)
+            {
+                PrintBaseObject(baseObject);
+            }
+        }
     }
 }
