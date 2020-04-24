@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lfeigl.cleanr.Library", "lf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lfeigl.cleanr.CLI", "lfeigl.cleanr.CLI\lfeigl.cleanr.CLI.csproj", "{2F77A980-E5C1-41E9-B8CF-B70EACBCAE0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lfeigl.cleanr.GUI", "lfeigl.cleanr.GUI\lfeigl.cleanr.GUI.csproj", "{326AE4D8-E197-449E-8E12-4D53C0443CD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F77A980-E5C1-41E9-B8CF-B70EACBCAE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F77A980-E5C1-41E9-B8CF-B70EACBCAE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F77A980-E5C1-41E9-B8CF-B70EACBCAE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326AE4D8-E197-449E-8E12-4D53C0443CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326AE4D8-E197-449E-8E12-4D53C0443CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326AE4D8-E197-449E-8E12-4D53C0443CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326AE4D8-E197-449E-8E12-4D53C0443CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
