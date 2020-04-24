@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="cleanr" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
-        
+        <TextBox x:Name="TextBoxAppName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="&lt;application name&gt;" VerticalAlignment="Top" Width="320" FontStyle="Italic"/>
+        <Button x:Name="ButtonSearch" Content="Search" HorizontalAlignment="Left" Margin="335,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListView x:Name="ListViewLocations" HorizontalAlignment="Left" Height="200" Margin="10,38,0,0" VerticalAlignment="Top" Width="400">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="ButtonClean" Content="Clean" HorizontalAlignment="Left" Margin="335,243,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
