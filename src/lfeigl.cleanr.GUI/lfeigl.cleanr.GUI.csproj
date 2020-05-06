@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lfeigl.cleanr.Library\lfeigl.cleanr.Library.csproj">
+      <Project>{ac2057ab-4f1c-47d9-a548-a916ce1f140d}</Project>
+      <Name>lfeigl.cleanr.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
