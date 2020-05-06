@@ -10,6 +10,15 @@
         <TextBox x:Name="TextBoxAppName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="&lt;application name&gt;" VerticalAlignment="Top" Width="320" FontStyle="Italic"/>
         <Button x:Name="ButtonSearch" Content="Search" HorizontalAlignment="Left" Margin="335,13,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="ButtonClean" Content="Clean" HorizontalAlignment="Left" Margin="335,243,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid x:Name="DataGridLocations" HorizontalAlignment="Left" Height="200" Margin="10,38,0,0" VerticalAlignment="Top" Width="400"/>
+        <DataGrid x:Name="DataGridLocations" HorizontalAlignment="Left" Height="200" Margin="10,38,0,0" VerticalAlignment="Top" Width="400" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" GridLinesVisibility="Horizontal">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{Binding Checked}">
+                    <DataGridCheckBoxColumn.Header>
+                        <CheckBox x:Name="CheckBoxToggleAllChecked"/>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Path" Binding="{Binding Path}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
