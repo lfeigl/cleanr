@@ -11,13 +11,20 @@
         <TextBox x:Name="TextBoxAppName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" metro:TextBoxHelper.Watermark="application name" metro:TextBoxHelper.ClearTextButton="True"/>
         <Button x:Name="ButtonSearch" Content="Search" HorizontalAlignment="Left" Margin="335,10,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
         <Button x:Name="ButtonClean" Content="Clean" HorizontalAlignment="Left" Margin="335,246,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
-        <DataGrid x:Name="DataGridLocations" HorizontalAlignment="Left" Height="200" Margin="10,41,0,0" VerticalAlignment="Top" Width="400" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" GridLinesVisibility="Horizontal">
+        <DataGrid x:Name="DataGridLocations" HorizontalAlignment="Left" Height="200" Margin="10,41,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Binding="{Binding Checked}" ElementStyle="{DynamicResource MetroDataGridCheckBox}" EditingElementStyle="{DynamicResource MetroDataGridCheckBox}">
-                    <DataGridCheckBoxColumn.Header>
-                        <CheckBox x:Name="CheckBoxToggleAllChecked"/>
-                    </DataGridCheckBoxColumn.Header>
-                </DataGridCheckBoxColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="CheckBoxToggleAllChecked"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Checked, UpdateSourceTrigger=PropertyChanged}" Margin="8.5,0,0,0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Path" Binding="{Binding Path}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
