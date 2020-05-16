@@ -1,4 +1,5 @@
-﻿using lfeigl.cleanr.Library;
+﻿using System.Windows;
+using lfeigl.cleanr.Library;
 
 namespace lfeigl.cleanr.GUI
 {
@@ -7,13 +8,20 @@ namespace lfeigl.cleanr.GUI
     /// </summary>
     public partial class MainWindow
     {
+        private LocationList list = new LocationList();
+
         public MainWindow()
         {
             InitializeComponent();
+            AddSampleLocations();
+            DataGridLocations.ItemsSource = list;
+        }
+
+        private void AddSampleLocations()
+        {
             Location locationA = new Location();
             Location locationB = new Location();
             Location locationC = new Location();
-            LocationList list = new LocationList();
 
             locationA.Path = @"a\b\c";
             locationB.Path = @"x\y\z";
@@ -22,8 +30,12 @@ namespace lfeigl.cleanr.GUI
             list.Add(locationA);
             list.Add(locationB);
             list.Add(locationC);
+        }
 
-            DataGridLocations.ItemsSource = list;
+        private void CheckBoxToggleAllChecked_Toggle(object sender, RoutedEventArgs e)
+        {
+            list.ToggleAllChecked();
+            DataGridLocations.Items.Refresh();
         }
     }
 }

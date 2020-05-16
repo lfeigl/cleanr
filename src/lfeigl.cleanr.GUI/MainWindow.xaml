@@ -16,7 +16,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
-                            <CheckBox x:Name="CheckBoxToggleAllChecked"/>
+                            <CheckBox x:Name="CheckBoxToggleAllChecked" Checked="CheckBoxToggleAllChecked_Toggle" Unchecked="CheckBoxToggleAllChecked_Toggle" IsChecked="True"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.HeaderTemplate>
                     <DataGridTemplateColumn.CellTemplate>
