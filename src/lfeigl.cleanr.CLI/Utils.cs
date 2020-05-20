@@ -5,7 +5,7 @@ using lfeigl.cleanr.Library;
 
 namespace lfeigl.cleanr.CLI
 {
-    public class Utils
+    public static class Utils
     {
         public static void PrintBaseObject(Base baseObject)
         {
