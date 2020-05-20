@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="BaseDirectories.cs" />
+    <Compile Include="DefaultDirectories.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="LocationList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
