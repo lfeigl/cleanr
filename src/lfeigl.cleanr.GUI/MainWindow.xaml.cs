@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System.Windows;
 using lfeigl.cleanr.Library;
 
 namespace lfeigl.cleanr.GUI
@@ -35,6 +38,26 @@ namespace lfeigl.cleanr.GUI
         private void CheckBoxToggleAllChecked_Toggle(object sender, RoutedEventArgs e)
         {
             list.ToggleAllChecked();
+            DataGridLocations.Items.Refresh();
+        }
+
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> directories = new List<string>();
+            string appName = TextBoxAppName.Text;
+
+            foreach (PropertyInfo prop in typeof(DefaultDirectories).GetProperties())
+            {
+                directories.AddRange(Directory.GetDirectories((string)prop.GetValue(null), $"*{appName}*"));
+            }
+
+            list.Clear();
+
+            foreach (string directory in directories)
+            {
+                list.Add(new Location { Path = directory });
+            }
+
             DataGridLocations.Items.Refresh();
         }
     }
