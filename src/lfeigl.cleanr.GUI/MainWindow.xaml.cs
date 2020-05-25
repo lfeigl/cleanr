@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using lfeigl.cleanr.Library;
 
 namespace lfeigl.cleanr.GUI
@@ -59,6 +61,14 @@ namespace lfeigl.cleanr.GUI
             }
 
             DataGridLocations.Items.Refresh();
+        }
+
+        private void TextBoxAppName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int cursorPosition = TextBoxAppName.SelectionStart;
+            TextBoxAppName.Text = Regex.Replace(TextBoxAppName.Text, "[^0-9a-zA-Z ._-]", "");
+            TextBoxAppName.SelectionStart = cursorPosition;
+            ButtonSearch.IsEnabled = TextBoxAppName.Text.Length > 1;
         }
     }
 }
