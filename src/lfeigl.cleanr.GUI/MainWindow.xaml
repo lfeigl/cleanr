@@ -11,7 +11,7 @@
         <TextBox x:Name="TextBoxAppName" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="320" metro:TextBoxHelper.Watermark="application name" metro:TextBoxHelper.ClearTextButton="True" FontSize="14" TextChanged="TextBoxAppName_TextChanged"/>
         <Button x:Name="ButtonSearch" Content="Search" HorizontalAlignment="Left" Margin="335,10,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="ButtonSearch_Click" IsEnabled="False"/>
         <Button x:Name="ButtonClean" Content="Clean" HorizontalAlignment="Left" Margin="335,249,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
-        <DataGrid x:Name="DataGridLocations" HorizontalAlignment="Left" Height="200" Margin="10,44,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+        <DataGrid x:Name="DataGridLocations" HorizontalAlignment="Left" Height="200" Margin="10,44,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>
