@@ -50,7 +50,7 @@ namespace lfeigl.cleanr.GUI
 
             foreach (PropertyInfo prop in typeof(DefaultDirectories).GetProperties())
             {
-                directories.AddRange(Directory.GetDirectories((string)prop.GetValue(null), $"*{appName}*"));
+                directories.AddRange(Directory.EnumerateDirectories((string)prop.GetValue(null), $"*{appName}*"));
             }
 
             list.Clear();
