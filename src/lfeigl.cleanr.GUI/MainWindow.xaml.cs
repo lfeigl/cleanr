@@ -18,23 +18,8 @@ namespace lfeigl.cleanr.GUI
         public MainWindow()
         {
             InitializeComponent();
-            AddSampleLocations();
+            list.Clear();
             DataGridLocations.ItemsSource = list;
-        }
-
-        private void AddSampleLocations()
-        {
-            Location locationA = new Location();
-            Location locationB = new Location();
-            Location locationC = new Location();
-
-            locationA.Path = @"a\b\c";
-            locationB.Path = @"x\y\z";
-            locationC.Path = @"1\2\3";
-
-            list.Add(locationA);
-            list.Add(locationB);
-            list.Add(locationC);
         }
 
         private void CheckBoxToggleAllChecked_Toggle(object sender, RoutedEventArgs e)
