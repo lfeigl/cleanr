@@ -46,6 +46,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Clean"
+            Click="ButtonClean_Click"
             />
         <DataGrid
             x:Name="DataGridLocations"
