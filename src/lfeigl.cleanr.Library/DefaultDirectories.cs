@@ -2,11 +2,13 @@
 {
     public static class DefaultDirectories
     {
+        public static string SystemDrive { get; set; }
         public static string ProgramData { get; set; }
         public static string ProgramFiles { get; set; }
         public static string ProgramFilesCommonFiles { get; set; }
         public static string ProgramFilesX86 { get; set; }
         public static string ProgramFilesX86CommonFiles { get; set; }
+        public static string UserProfile { get; set; }
         public static string AppDataLocal { get; set; }
         public static string AppDataLocalPrograms { get; set; }
         public static string AppDataLocalProgramsCommon { get; set; }
@@ -15,11 +17,13 @@
         public static string Documents { get; set; }
         static DefaultDirectories()
         {
+            SystemDrive                 = BaseDirectories.SystemDrive;
             ProgramData                 = BaseDirectories.SystemDrive + @"ProgramData";
             ProgramFiles                = BaseDirectories.SystemDrive + @"Program Files";
             ProgramFilesCommonFiles     = BaseDirectories.SystemDrive + @"Program Files\Common Files";
             ProgramFilesX86             = BaseDirectories.SystemDrive + @"Program Files (x86)";
             ProgramFilesX86CommonFiles  = BaseDirectories.SystemDrive + @"Program Files (x86)\Common Files";
+            UserProfile                 = BaseDirectories.UserProfile;
             AppDataLocal                = BaseDirectories.UserProfile + @"AppData\Local";
             AppDataLocalPrograms        = BaseDirectories.UserProfile + @"AppData\Local\Programs";
             AppDataLocalProgramsCommon  = BaseDirectories.UserProfile + @"AppData\Local\Programs\Common";
