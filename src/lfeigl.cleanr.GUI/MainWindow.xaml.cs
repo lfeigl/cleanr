@@ -55,5 +55,44 @@ namespace lfeigl.cleanr.GUI
             TextBoxAppName.SelectionStart = cursorPosition;
             ButtonSearch.IsEnabled = TextBoxAppName.Text.Length > 1;
         }
+
+        private void ButtonClean_Click(object sender, RoutedEventArgs e)
+        {
+            LocationList deletedLocations = new LocationList();
+
+            foreach (Location location in list)
+            {
+                if (location.Checked)
+                {
+                    DeleteDirectory(location.Path);
+                    deletedLocations.Add(location);
+                }
+            }
+
+            foreach (Location location in deletedLocations)
+            {
+                list.Remove(location);
+            }
+
+            DataGridLocations.Items.Refresh();
+        }
+
+        private void DeleteDirectory(string directory)
+        {
+            File.SetAttributes(directory, FileAttributes.Normal);
+
+            foreach (string file in Directory.EnumerateFiles(directory))
+            {
+                File.SetAttributes(file, FileAttributes.Normal);
+                File.Delete(file);
+            }
+
+            foreach (string subDirectory in Directory.EnumerateDirectories(directory))
+            {
+                DeleteDirectory(subDirectory);
+            }
+
+            Directory.Delete(directory, false);
+        }
     }
 }
