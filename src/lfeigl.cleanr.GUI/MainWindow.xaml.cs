@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using lfeigl.cleanr.Library;
 
 namespace lfeigl.cleanr.GUI
@@ -93,6 +94,14 @@ namespace lfeigl.cleanr.GUI
             }
 
             Directory.Delete(directory, false);
+        }
+
+        private void TextBoxAppName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ButtonSearch_Click(sender, e);
+            }
         }
     }
 }

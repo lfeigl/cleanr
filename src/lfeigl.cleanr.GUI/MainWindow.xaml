@@ -26,6 +26,7 @@
             metro:TextBoxHelper.Watermark="application name"
             metro:TextBoxHelper.ClearTextButton="True"
             TextChanged="TextBoxAppName_TextChanged"
+            KeyDown="TextBoxAppName_KeyDown"
             />
         <Button
             x:Name="ButtonSearch"
