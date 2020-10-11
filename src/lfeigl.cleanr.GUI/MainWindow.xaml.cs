@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -31,22 +33,48 @@ namespace lfeigl.cleanr.GUI
 
         private void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
-            List<string> directories = new List<string>();
+            List<string> foundDirsList = new List<string>();
             string appName = TextBoxAppName.Text;
+            string searchPattern = $"*{appName}*";
 
             foreach (PropertyInfo prop in typeof(DefaultDirectories).GetProperties())
             {
-                directories.AddRange(Directory.EnumerateDirectories((string)prop.GetValue(null), $"*{appName}*"));
+                string rootDirPath = (string)prop.GetValue(null);
+                List<string> allSubDirsList = GetSubDirsBySearchPattern(rootDirPath, "*");
+
+                foundDirsList.AddRange(GetSubDirsBySearchPattern(rootDirPath, searchPattern));
+
+                foreach (string subDirPath in allSubDirsList.Except(foundDirsList))
+                {
+                    foundDirsList.AddRange(GetSubDirsBySearchPattern(subDirPath, searchPattern));
+                }
             }
 
             list.Clear();
 
-            foreach (string directory in directories)
+            foreach (string dirPath in foundDirsList)
             {
-                list.Add(new Location { Path = directory });
+                list.Add(new Location { Path = dirPath });
             }
 
             DataGridLocations.Items.Refresh();
+        }
+
+        private List<string> GetSubDirsBySearchPattern(string rootDirPath, string searchPattern)
+        {
+            List<string> foundDirsList = new List<string>();
+
+            try
+            {
+                Directory.GetAccessControl(rootDirPath);
+                foundDirsList.AddRange(Directory.EnumerateDirectories(rootDirPath, searchPattern));
+            }
+            catch (UnauthorizedAccessException)
+            {
+                //TODO: Add debug log
+            }
+
+            return foundDirsList;
         }
 
         private void TextBoxAppName_TextChanged(object sender, TextChangedEventArgs e)
