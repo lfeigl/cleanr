@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using lfeigl.cleanr.Library;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace lfeigl.cleanr.GUI
 {
@@ -31,7 +32,7 @@ namespace lfeigl.cleanr.GUI
             DataGridLocations.Items.Refresh();
         }
 
-        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        private async void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
             List<string> foundDirsList = new List<string>();
             string appName = TextBoxAppName.Text;
@@ -50,14 +51,20 @@ namespace lfeigl.cleanr.GUI
                 }
             }
 
-            list.Clear();
-
-            foreach (string dirPath in foundDirsList)
+            if (foundDirsList.Count == 0)
             {
-                list.Add(new Location { Path = dirPath });
-            }
+                await this.ShowMessageAsync("Nothing here! 😄👍", $"No leftovers of \"{appName}\" were found.");
+            } else
+            {
+                list.Clear();
 
-            DataGridLocations.Items.Refresh();
+                foreach (string dirPath in foundDirsList)
+                {
+                    list.Add(new Location { Path = dirPath });
+                }
+
+                DataGridLocations.Items.Refresh();
+            }
         }
 
         private List<string> GetSubDirsBySearchPattern(string rootDirPath, string searchPattern)
