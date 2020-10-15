@@ -77,9 +77,9 @@ namespace lfeigl.cleanr.GUI
                 Directory.GetAccessControl(rootDirPath);
                 foundDirsList.AddRange(Directory.EnumerateDirectories(rootDirPath, searchPattern));
             }
-            catch (UnauthorizedAccessException)
+            catch (UnauthorizedAccessException ex)
             {
-                //TODO: Add debug log
+                DebugLog.Add(ex.Message);
             }
 
             return foundDirsList;
