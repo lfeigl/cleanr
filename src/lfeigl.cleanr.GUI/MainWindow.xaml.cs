@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -136,6 +137,24 @@ namespace lfeigl.cleanr.GUI
             if (e.Key == Key.Enter)
             {
                 ButtonSearch_Click(sender, e);
+            }
+        }
+
+        private void ButtonOpen_Click(object sender, RoutedEventArgs e)
+        {
+            Location selectedLocation = (Location)DataGridLocations.SelectedItem;
+            Process.Start(@selectedLocation.Path);
+        }
+
+        private void DataGridLocations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataGridLocations.SelectedItem == null)
+            {
+                ButtonOpen.IsEnabled = false;
+            }
+            else
+            {
+                ButtonOpen.IsEnabled = true;
             }
         }
     }

@@ -40,6 +40,17 @@
             IsEnabled="False"
             />
         <Button
+            x:Name="ButtonOpen"
+            Width="75"
+            Height="29"
+            Margin="355,299,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Open"
+            Click="ButtonOpen_Click"
+            IsEnabled="False"
+            />
+        <Button
             x:Name="ButtonClean"
             Width="75"
             Height="29"
@@ -65,6 +76,8 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             CanUserResizeRows="False"
+            SelectionMode="Single"
+            SelectionChanged="DataGridLocations_SelectionChanged"
             >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
