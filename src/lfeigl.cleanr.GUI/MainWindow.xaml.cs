@@ -61,7 +61,15 @@ namespace lfeigl.cleanr.GUI
 
                 foreach (string dirPath in foundDirsList)
                 {
-                    list.Add(new Location { Path = dirPath });
+                    Location location = new Location { Path = dirPath };
+                    string dirName = Path.GetFileName(dirPath);
+
+                    if (dirName.ToLower() == appName.ToLower())
+                    {
+                        location.Checked = true;
+                    }
+
+                    list.Add(location);
                 }
 
                 DataGridLocations.Items.Refresh();

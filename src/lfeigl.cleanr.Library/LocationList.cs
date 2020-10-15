@@ -6,24 +6,13 @@ namespace lfeigl.cleanr.Library
     {
         public bool AllChecked { get; set; }
 
-        public LocationList()
-        {
-            this.AllChecked = true;
-        }
-
-        public new void Add(Location location)
-        {
-            location.Checked = this.AllChecked;
-            base.Add(location);
-        }
-
         public void ToggleAllChecked()
         {
-            this.AllChecked = !this.AllChecked;
+            AllChecked = !AllChecked;
 
             foreach (Location location in this)
             {
-                location.Checked = this.AllChecked;
+                location.Checked = AllChecked;
             }
         }
     }

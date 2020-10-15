@@ -87,7 +87,7 @@
                                 x:Name="CheckBoxToggleAllChecked"
                                 Checked="CheckBoxToggleAllChecked_Toggle"
                                 Unchecked="CheckBoxToggleAllChecked_Toggle"
-                                IsChecked="True"
+                                IsChecked="False"
                                 />
                         </DataTemplate>
                     </DataGridTemplateColumn.HeaderTemplate>
