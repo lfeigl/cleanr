@@ -36,7 +36,7 @@ namespace lfeigl.cleanr.GUI
         private async void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
             List<string> foundDirsList = new List<string>();
-            string appName = TextBoxAppName.Text;
+            string appName = TextBoxAppName.Text.Trim();
             string searchPattern = $"*{appName}*";
 
             foreach (PropertyInfo prop in typeof(DefaultDirectories).GetProperties())
@@ -98,7 +98,7 @@ namespace lfeigl.cleanr.GUI
             int cursorPosition = TextBoxAppName.SelectionStart;
             TextBoxAppName.Text = Regex.Replace(TextBoxAppName.Text, "[^0-9a-zA-Z ._-]", "");
             TextBoxAppName.SelectionStart = cursorPosition;
-            ButtonSearch.IsEnabled = TextBoxAppName.Text.Length > 1;
+            ButtonSearch.IsEnabled = TextBoxAppName.Text.Trim().Length > 1;
         }
 
         private void ButtonClean_Click(object sender, RoutedEventArgs e)
