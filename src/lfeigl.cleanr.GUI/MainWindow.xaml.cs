@@ -165,5 +165,16 @@ namespace lfeigl.cleanr.GUI
                 ButtonOpen.IsEnabled = true;
             }
         }
+
+        private async void ButtonAbout_Click(object sender, RoutedEventArgs e)
+        {
+            string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string[] aboutText = {
+                $"cleanr v{version}",
+                "VERSION NOT FINAL",
+            };
+
+            await this.ShowMessageAsync("About cleanr", string.Join(Environment.NewLine, aboutText));
+        }
     }
 }

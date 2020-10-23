@@ -60,6 +60,16 @@
             Content="Clean"
             Click="ButtonClean_Click"
             />
+        <Button
+            x:Name="ButtonAbout"
+            Width="75"
+            Height="29"
+            Margin="709,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="About"
+            Click="ButtonAbout_Click"
+            />
         <DataGrid
             x:Name="DataGridLocations"
             Width="500"
