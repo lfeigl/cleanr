@@ -11,16 +11,16 @@ using System.Windows.Input;
 using lfeigl.cleanr.Library;
 using MahApps.Metro.Controls.Dialogs;
 
-namespace lfeigl.cleanr.GUI
+namespace lfeigl.cleanr.GUI.Windows
 {
     /// <summary>
     /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class Main
     {
         private LocationList list = new LocationList();
 
-        public MainWindow()
+        public Main()
         {
             InitializeComponent();
             list.Clear();
