@@ -14,7 +14,7 @@ using MahApps.Metro.Controls.Dialogs;
 namespace lfeigl.cleanr.GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Main.xaml
     /// </summary>
     public partial class MainWindow
     {
